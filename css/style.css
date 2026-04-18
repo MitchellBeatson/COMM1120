@@ -1,0 +1,719 @@
+/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+body {
+  background-color: white; /* Pink background for the whole body */
+  font-family: Papyrus, fantasy;
+  height: 200%; /* Ensure the body is tall enough for scrolling */
+  margin: 0;
+  padding-top: 80px; /* Adds spacing from the top to account for banner height */
+  overflow-y: auto; /* Enables vertical scrolling */
+}
+
+.banner {
+  background-color: black;
+  color: white;
+  padding: 200px;
+  position: fixed;
+  top: 0; /* Position the banner at the top */
+  width: 100%;
+  z-index: 1; /* Set the z-index lower than the pink background so it's behind */
+  margin: 0;
+  box-sizing: border-box; /* Ensure padding does not affect its height */
+}
+
+.title {
+  font-size: 32px;
+  text-transform: capitalize;
+  font-weight: bold;
+  text-align: center;
+  margin-top: -140px; /* Move the title up */
+}
+
+.subtitle {
+  font-size: 18px;
+  text-align: center;
+  margin-top: -40px;
+}
+
+.subtitle .first {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.pinkBackground {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  top: 100px; /* Push it down under the banner */
+  z-index: 2;
+}
+
+#draggableText {
+  font-size: 24px;
+  font-family: Papyrus, fantasy;
+  color: black;
+  background-color: yellow;
+  padding: 10px;
+  position: absolute;
+  cursor: grab;
+  z-index: 3;
+  top: 100px; /* Position it below the banner */
+}
+
+.text-on-pink {
+  font-size: 18px;
+  color: black;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Parent container for positioning */
+.tab-container {
+  position: relative; /* Makes it the positioning context for absolutely positioned children */
+  width: 100%;
+}
+
+/* Tab Buttons positioned just below the banner */
+.tab-buttons {
+  position: relative; /* Keep this relative to position buttons inside it */
+  top: 70px; /* Adjust this based on the distance from the banner */
+  left: 10px;
+  z-index: 1; /* Above pink sections */
+}
+
+/* Style for the tab buttons */
+.tab-buttons button {
+  width: 150px;
+  padding: 10px 15px;          /* Adjust button padding */
+  margin: 0;
+  background-color: navajowhite;   /* Set the button background color (e.g., pink) */
+  border-color: navajowhite;
+  color: black;                /* Set the text color */
+  font-size: 16px;             /* Adjust the text size */
+  cursor: pointer;            /* Show pointer cursor on hover */
+  border-radius: 10px;          /* Optional: round the corners of the button */
+  transition: background-color 0.3s, border-color 0.3s; /* Smooth transition for hover effect */
+  position: absolute;         /* Position absolutely inside the .tab-buttons container */
+  z-index: 0;
+  top: 0;                     /* Keep them aligned on the same vertical axis */
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* Shift the buttons horizontally with left offset */
+.tab-buttons button:nth-child(1) {
+  left: 0;  /* No shift for the first button */
+}
+
+.tab-buttons button:nth-child(2) {
+  left: 140px;  /* Shift the second button 30px to the right */
+}
+
+.tab-buttons button:nth-child(3) {
+  left: 280px;  /* Shift the third button 60px to the right */
+}
+
+.tab-buttons button:nth-child(4) {
+  left: 420px;  /* Shift the third button 60px to the right */
+  width: 230px;
+}
+
+/* Hover effect for buttons */
+.tab-buttons button:hover {
+  background-color: sandybrown;   /* Change background on hover */
+  border-color: sandybrown;
+}
+
+/* Active tab button style */
+.tab-buttons button.active-tab {
+  background-color: white;  /* Same as your hover color or any other color you want */
+  border-color: white;
+  color: black; /* Optional: Change text color to contrast with background */
+  z-index: 4;
+}
+
+
+/* Show first tab by default */
+.pinkBackground:first-of-type {
+  display: flex;
+}
+/*
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: conic-gradient(
+          red 0% 25%,
+          blue 25% 50%,
+          green 50% 75%,
+          yellow 75% 100%
+  );
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  cursor: grab;
+  z-index: 2;
+}
+*/
+/* Style the container */
+/* Make sure the image container has grab cursor style */
+.image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+}
+
+#spinnableImage {
+  position: absolute;
+  transform-origin: center;
+  user-select: none;
+}
+
+.user-area {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.user-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.user-text {
+  color: white;
+  font-size: 16px;
+}
+/*
+button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+ */
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .visually-hidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+
+/*
+ * Clearfix: contain floats
+ *
+ * The use of `table` rather than `block` is only necessary if using
+ * `::before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+/* Symptom Submission Box */
+.symptom-box {
+  background-color: #f8f8f8;
+  padding: 30px;
+  border-radius: 15px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.symptom-box h2 {
+  margin-bottom: 20px;
+}
+
+.symptom-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.symptom-box input,
+.symptom-box textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.symptom-box textarea {
+  resize: none;
+}
+
+.symptom-box button {
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.symptom-box button:hover {
+  background-color: #333;
+}
+
+.emergency-label {
+  font-weight: bold;
+  color: red;
+}
+
+#painValue {
+  font-weight: bold;
+}
+
+.records-box {
+  background-color: #f8f8f8;
+  padding: 30px;
+  border-radius: 15px;
+  width: 500px;
+  max-width: 90%;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.records-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.record-item {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.record-summary {
+  width: 100%;
+  background-color: navajowhite;
+  border: none;
+  padding: 15px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: Papyrus, fantasy;
+}
+
+.record-summary:hover {
+  background-color: sandybrown;
+}
+
+.record-details {
+  padding: 15px;
+  display: none;
+  text-align: left;
+  border-top: 1px solid #ddd;
+}
+
+.record-details p {
+  margin: 8px 0;
+}
+
+.details-box {
+  background-color: #f8f8f8;
+  padding: 30px;
+  border-radius: 15px;
+  width: 500px;
+  max-width: 90%;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.details-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.details-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.details-form label {
+  font-weight: bold;
+  text-align: left;
+}
+
+.details-form input,
+.details-form select,
+.details-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.details-form textarea {
+  resize: vertical;
+}
+
+.details-form button {
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.details-form button:hover {
+  background-color: #333;
+}
+
+.details-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+}
+
+#detailsMessage {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+.home-box {
+  max-width: 800px;
+  text-align: center;
+  padding: 20px;
+}
+
+.home-title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.home-intro {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.home-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.feature {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.feature h3 {
+  margin-bottom: 10px;
+}
+
+.home-action {
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 18px;
+}
+/*
+.home-image {
+  width: 1000%;
+  max-width: 1200px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 15px;
+  margin: 20px 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+*/
+
+.image-crop {
+  width: 600px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 15px;
+  margin: 20px auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.home-image {
+  width: 100%;
+  display: block;
+  margin-top: -30px;
+}
+
+.doctor-record-entry {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.doctor-record-entry p {
+  margin: 6px 0;
+}
+
+.patient-search {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 16px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doctor Dashboard - MedConnect</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="banner">
+  <p class="title">MedConnect Doctor Portal</p>
+  <p class="subtitle">Review patient details, symptoms, and records.</p>
+
+  <a href="logout.html" class="user-area">
+    <div class="user-icon">D</div>
+    <span class="user-text">Doctor</span>
+  </a>
+</div>
+
+<div class="pinkBackground" id="doctorDashboard">
+  <div class="records-box">
+    <h2>Patient Records</h2>
+
+    <input
+            type="text"
+            id="patientSearch"
+            placeholder="Search by patient name or username"
+            class="patient-search"
+    >
+
+    <div id="doctorRecordsContainer">
+      <p class="text-on-pink">No patient records available.</p>
+    </div>
+  </div>
+</div>
+
+<script src="js/doctor.js"></script>
+</body>
+</html>
