@@ -10,6 +10,8 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;500;600&display=swap');
+
 
 html {
   color: #222;
@@ -82,36 +84,49 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
+/*
 body {
-  background-color: white; /* Pink background for the whole body */
+  background-color: white;
   font-family: Papyrus, fantasy;
-  height: 200%; /* Ensure the body is tall enough for scrolling */
+  height: 200%;
   margin: 0;
-  padding-top: 80px; /* Adds spacing from the top to account for banner height */
-  overflow-y: auto; /* Enables vertical scrolling */
+  padding-top: 80px;
+  overflow-y: auto;
+}
+*/
+
+body {
+  background-color: #b3d4fc;
+  font-family: Georgia, serif;
+  color: black;
+  margin: 0;
+  padding-top: 80px;
 }
 
 .banner {
-  background-color: black;
-  color: white;
+  background-color:#f8f8f8;
+  color: #272772;
   padding: 200px;
   position: fixed;
-  top: 0; /* Position the banner at the top */
+  top: 0;
   width: 100%;
-  z-index: 1; /* Set the z-index lower than the pink background so it's behind */
+  z-index: 1;
   margin: 0;
-  box-sizing: border-box; /* Ensure padding does not affect its height */
+  box-sizing: border-box;
 }
 
 .title {
+  font-family: 'Baloo 2', sans-serif;
   font-size: 32px;
   text-transform: capitalize;
   font-weight: bold;
   text-align: center;
-  margin-top: -140px; /* Move the title up */
+  margin-top: -140px;
 }
 
 .subtitle {
+  font-family: 'Baloo 2', sans-serif;
   font-size: 18px;
   text-align: center;
   margin-top: -40px;
@@ -123,7 +138,7 @@ body {
 }
 
 .pinkBackground {
-  background-color: white;
+  background-color: #b3d4fc;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -173,12 +188,16 @@ body {
 /* Style for the tab buttons */
 .tab-buttons button {
   width: 150px;
-  padding: 10px 15px;          /* Adjust button padding */
   margin: 0;
-  background-color: navajowhite;   /* Set the button background color (e.g., pink) */
-  border-color: navajowhite;
-  color: black;                /* Set the text color */
+  background-color:  #adddf7;   /* Set the button background color (e.g., pink) */
+  border-color:  #adddf7;
+  color: #272772;                /* Set the text color */
+  font-family: 'Baloo 2', sans-serif;
   font-size: 16px;             /* Adjust the text size */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 6px 15px 12px;
   cursor: pointer;            /* Show pointer cursor on hover */
   border-radius: 10px;          /* Optional: round the corners of the button */
   transition: background-color 0.3s, border-color 0.3s; /* Smooth transition for hover effect */
@@ -209,15 +228,15 @@ body {
 
 /* Hover effect for buttons */
 .tab-buttons button:hover {
-  background-color: sandybrown;   /* Change background on hover */
-  border-color: sandybrown;
+  background-color:#82c4fa;   /* Change background on hover */
+  border-color:#82c4fa;
 }
 
 /* Active tab button style */
 .tab-buttons button.active-tab {
-  background-color: white;  /* Same as your hover color or any other color you want */
-  border-color: white;
-  color: black; /* Optional: Change text color to contrast with background */
+  background-color: #b3d4fc;  /* Same as your hover color or any other color you want */
+  border-color: #b3d4fc;
+  color: #272772; /* Optional: Change text color to contrast with background */
   z-index: 4;
 }
 
@@ -276,16 +295,18 @@ body {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  background-color: white;
-  color: black;
+  background-color: #adddf7;
+  color: #272772;
+  font-family: 'Baloo 2', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .user-text {
-  color: white;
+  color: #272772;
+  font-family: 'Baloo 2', sans-serif;
   font-size: 16px;
 }
 /*
@@ -461,6 +482,8 @@ button {
 .symptom-box {
   background-color: #f8f8f8;
   padding: 30px;
+  font-family: 'Baloo 2', sans-serif;
+  color: #272772;
   border-radius: 15px;
   width: 400px;
   text-align: center;
@@ -492,15 +515,17 @@ button {
 
 .symptom-box button {
   padding: 10px;
-  background-color: black;
-  color: white;
+  background-color: #adddf7;
+  font-family: 'Baloo 2', sans-serif;
+  color: #272772;
   border: none;
+  font-size: 19px;
   border-radius: 8px;
   cursor: pointer;
 }
 
 .symptom-box button:hover {
-  background-color: #333;
+  background-color: #82c4fa;
 }
 
 .emergency-label {
@@ -523,6 +548,8 @@ button {
 
 .records-box h2 {
   text-align: center;
+  font-family: 'Baloo 2', sans-serif;
+  color: #272772;
   margin-bottom: 20px;
 }
 
@@ -536,17 +563,18 @@ button {
 
 .record-summary {
   width: 100%;
-  background-color: navajowhite;
+  background-color: #adddf7;;
   border: none;
   padding: 15px;
   text-align: left;
   font-size: 16px;
   cursor: pointer;
-  font-family: Papyrus, fantasy;
+  color: #272772;
+  font-family: 'Baloo 2', sans-serif;
 }
 
 .record-summary:hover {
-  background-color: sandybrown;
+  background-color: #82c4fa;
 }
 
 .record-details {
@@ -554,6 +582,8 @@ button {
   display: none;
   text-align: left;
   border-top: 1px solid #ddd;
+  color: #272772;
+  font-family: 'Baloo 2', sans-serif;
 }
 
 .record-details p {
@@ -572,6 +602,8 @@ button {
 .details-box h2 {
   text-align: center;
   margin-bottom: 20px;
+  color: #272772;
+  font-family: 'Baloo 2', sans-serif;
 }
 
 .details-form {
@@ -603,15 +635,17 @@ button {
 
 .details-form button {
   padding: 10px;
-  background-color: black;
-  color: white;
+  background-color: #adddf7;;
+  color: #272772;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 19px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
 }
 
 .details-form button:hover {
-  background-color: #333;
+  background-color: #82c4fa;
 }
 
 .details-checkbox {
